@@ -1,0 +1,150 @@
+/* Variables */
+/* Using colour chemes obtained from https://coolors.co  */
+/* greyscale very-light: #F8F9FA  mlight-grey: #DEE2E6  mid grey: #ADB5BD
+   dark-grey: #495057  nearly-black: #212529 */
+   
+
+:root {
+    --base-color: #F8F9FA;
+    --header-base-color: #212529;
+    --logo1-color: #BBD0FF;
+    --logo2-color: #d9dcd6;
+    --header-text-color: #F8F9FA;   
+}
+
+/* Reset margin and padding to set them where needed individually */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+html, body {
+    height: 100%;
+}
+*/
+
+
+body {
+    background-color: var(--base-color);
+}
+
+
+/* Header for now is a static structure, may change it to a floating header 
+   or part of the grid later */
+
+.header {
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #495057;
+    color: #ffffff;
+}
+
+/* First part of the logo is purple-ish */
+
+.header h1 {
+    display: inline-block;
+    font-size: 40px;
+    color: var(--logo1-color);
+}
+
+/* Second part of the logo "WEB" has a slightly yellow-ish shade */
+
+.header h1 .web {
+    color: var(--logo2-color);
+}
+
+
+.header nav {
+    padding-top: 15px;
+    margin-right: 20px;
+    float: right;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.header nav ul {
+    list-style-type: none;
+}
+
+.header nav ul li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.header a {
+    color: var(--header-text-color);
+    text-decoration: none;
+}
+
+.main {
+    background-color: var(--base-color);
+/* experimenting with border to see how the elements lay out */
+    border: 3px solid #555;
+    display: grid;
+    grid-column: 1/3;
+ /* grid-template-columns: 1fr 2fr 2fr; */
+ /* grid-template-rows: 200px auto 200px; */
+    grid-template-areas:
+    "about-me describe-me photo"
+    "portfolio Project1 Project2"
+    "portfolio Project3 Project4"
+    "contact phone-email phone-email"
+}
+
+.item-about-me {
+    grid-area: about-me;
+    justify-content: right;
+    background-color: blue;
+}
+
+.item-escribe-me {
+    grid-area: describe-me;
+    text-align: center;
+    background-color: blue;
+}
+
+.item-portfolio {
+    grid-area: portfolio;
+    justify-content: right;
+    background-color: blue;
+}
+
+.item-photo {
+    grid-area: photo;
+    background-color: blue;
+}
+
+.item-Project1 {
+    grid-area: Project1;
+    background-color: blue;
+}
+
+.item-Project2 {
+    grid-area: Project2;
+    background-color: blue;
+}
+
+.item-Project3 {
+    grid-area: Project3;
+    background-color: blue;
+}
+
+.item-Project4 {
+    grid-area: Project4;
+    background-color: blue;
+}
+
+.item-contact {
+    grid-area: contact;
+    background-color: blue;
+}
+
+.item-phone-email {
+    grid-area: phone-email;
+    background-color: blue;
+}
+
