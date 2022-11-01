@@ -9,7 +9,10 @@
     --header-base-color: #212529;
     --logo1-color: #BBD0FF;
     --logo2-color: #d9dcd6;
-    --header-text-color: #F8F9FA;   
+    --header-text-color: #F8F9FA;  
+    --header-background-color: #495057;
+    --footer-background-color: #6C757D;
+    --placeholder-color: #ADE8F4;
 }
 
 /* Reset margin and padding to set them where needed individually */
@@ -21,15 +24,20 @@
 }
 
 
-/*
+
 html, body {
     height: 100%;
 }
-*/
+
 
 
 body {
     background-color: var(--base-color);
+    display: grid;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px auto 50px;
 }
 
 
@@ -37,19 +45,25 @@ body {
    or part of the grid later */
 
 .header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #495057;
-    color: #ffffff;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
 }
 
 /* First part of the logo is purple-ish */
 
 .header h1 {
     display: inline-block;
-    font-size: 40px;
+    align-items: center;
+    font-size: 30px;
     color: var(--logo1-color);
 }
+
 
 /* Second part of the logo "WEB" has a slightly yellow-ish shade */
 
@@ -57,12 +71,12 @@ body {
     color: var(--logo2-color);
 }
 
+/* place navigation items on the right of the nav bar */
 
 .header nav {
-    padding-top: 15px;
-    margin-right: 20px;
-    float: right;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-items: center;
+    justify-self: flex-end;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
 }
 
@@ -80,71 +94,97 @@ body {
     text-decoration: none;
 }
 
-.main {
+main {
     background-color: var(--base-color);
-/* experimenting with border to see how the elements lay out */
-    border: 3px solid #555;
     display: grid;
-    grid-column: 1/3;
- /* grid-template-columns: 1fr 2fr 2fr; */
- /* grid-template-rows: 200px auto 200px; */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-rows: 100px 200px 200px 50px; 
     grid-template-areas:
-    "about-me describe-me photo"
-    "portfolio Project1 Project2"
-    "portfolio Project3 Project4"
-    "contact phone-email phone-email"
+    'about-me describe-me photo'
+    'portfolio Project1 Project2'
+    'portfolio Project3 Project4'
+    'contact phone-email phone-email'
 }
 
 .item-about-me {
     grid-area: about-me;
-    justify-content: right;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    align-items: flex-end;
     background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px
 }
 
-.item-escribe-me {
+.item-describe-me {
     grid-area: describe-me;
     text-align: center;
+    align-items: center;
     background-color: blue;
-}
-
-.item-portfolio {
-    grid-area: portfolio;
-    justify-content: right;
-    background-color: blue;
+    margin: 20px;
 }
 
 .item-photo {
     grid-area: photo;
     background-color: blue;
+    margin: 20px;
+}
+
+.item-portfolio {
+    grid-area: portfolio;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    align-items: flex-end;
+    background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 .item-Project1 {
     grid-area: Project1;
-    background-color: blue;
+    background-color: var(--placeholder-color);
+    margin: 20px;
 }
 
 .item-Project2 {
     grid-area: Project2;
-    background-color: blue;
+    background-color: var(--placeholder-color);
+    margin: 20px;
 }
 
 .item-Project3 {
     grid-area: Project3;
-    background-color: blue;
+    background-color: var(--placeholder-color);
+    margin: 5px;
 }
 
 .item-Project4 {
     grid-area: Project4;
-    background-color: blue;
+    background-color: var(--placeholder-color);
+    margin: 20px;
 }
 
 .item-contact {
     grid-area: contact;
     background-color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 .item-phone-email {
     grid-area: phone-email;
+    display: inline-block;
     background-color: blue;
+    margin: 20px;
 }
 
+footer {
+    grid-column: 1 / 3;
+    background: var(--footer-background-color);
+    color: #fff;
+    display: grid;
+    align-items: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  }
